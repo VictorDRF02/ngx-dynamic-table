@@ -1,2 +1,70 @@
-<h1 class="text-center">Test App</h1>
-<ngx-dynamic-table [data]="data1"></ngx-dynamic-table>
+<div class="container">
+    <h1 class="my-4">ngx-dynamic-table-component Demo</h1>
+    <p>
+        The <strong>ngx-dynamic-table-component</strong> is a versatile Angular component that allows you to dynamically
+        generate tables using Bootstrap. You can provide data in various formats to create tables with customizable
+        headers, footers, and cell styles.
+    </p>
+
+    <h2 class="my-4">Using <code>string[][]</code></h2>
+    <p>
+        You can provide a <code>string[][]</code> array to generate a simple table. For example:
+    </p>
+    <pre><code>
+  [
+    ['Nombre', 'Apellido', 'Edad'],
+    ['Juan', 'Gómez', '45'],
+    ['Pedro', 'Dominguez', '36'],
+    ['Alberto', 'Pérez', '27'],
+    ['Promedio', '', '36']
+  ]
+    </code></pre>
+    <p>This will generate a table like this:</p>
+    <div class="table-responsive">
+        <ngx-dynamic-table [data]="examples.string"></ngx-dynamic-table>
+    </div>
+
+    <h2 class="my-4">Using <code>TableOptions</code></h2>
+    <p>
+        For more advanced configurations, you can provide a <code>TableOptions</code> object. This allows you to
+        customize headers, footers, and individual cell styles, and enable sorting on specific columns. For example:
+    </p>
+    <pre><code>        
+  {{'{'}}
+    header: [
+      {{'{'}} text: 'Nombre', sortable: true },
+      {{'{'}} text: 'Apellido', sortable: false },
+      {{'{'}} text: 'Edad', sortable: true }
+    ],
+    body: [
+      [
+        {{'{'}} text: 'Juan', bold: true },
+        {{'{'}} text: 'Gómez' },
+        {{'{'}} text: '45', italic: true }
+      ],
+      [
+        {{'{'}} text: 'Pedro' },
+        {{'{'}} text: 'Dominguez', class: 'custom-class' },
+        {{'{'}} text: '36' }
+      ],
+      [
+        {{'{'}} text: 'Alberto' },
+        {{'{'}} text: 'Pérez' },
+        {{'{'}} text: '27' }
+      ]
+    ],
+    footer: [
+      [
+        {{'{'}} text: 'Promedio' },
+        {{'{'}} text: '' },
+        {{'{'}} text: '36' }
+      ]
+    ],
+    class: 'table-class'
+  }
+    </code></pre>
+    <p>This will generate a table like this:</p>
+    <div class="table-responsive">
+        <ngx-dynamic-table [data]="examples.tableOptions"></ngx-dynamic-table>
+    </div>
+</div>

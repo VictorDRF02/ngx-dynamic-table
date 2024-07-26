@@ -15,12 +15,12 @@ yarn add ngx-dynamic-table-component
 Import the module in your Angular application:
 
 ```typescript
-import { NgxDynamicTableModule } from 'ngx-dynamic-table-component';
+import { NgxDynamicTableComponent } from 'ngx-dynamic-table-component';
 
 @NgModule({
   imports: [
     // other modules
-    NgxDynamicTableModule
+    NgxDynamicTableComponent
   ],
   // other components, services, etc.
 })

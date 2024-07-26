@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TableOptions } from 'projects/ngx-dynamic-table/src/lib/interfaces/table-options';
 
 @Component({
   selector: 'app-root',
@@ -7,32 +6,35 @@ import { TableOptions } from 'projects/ngx-dynamic-table/src/lib/interfaces/tabl
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'test';
-  data1: TableOptions = {
-    header: [
-      { text: 'Header 1', sortable: true },
-      { text: 'Header 2', sortable: false },
-      { text: 'Header 3', sortable: true }
+  examples = {
+    string: [
+      ['Nombre', 'Apellido', 'Edad'],
+      ['Juan', 'Gómez', '45'],
+      ['Pedro', 'Dominguez', '36'],
+      ['Alberto', 'Pérez', '27'],
+      ['Promedio', '', '36'],
     ],
-    body: [
-      [
-        { text: 'Row 1 Col 1', bold: true },
-        { text: 'Row 1 Col 2' },
-        { text: 'Row 1 Col 3', italic: true }
+    tableOptions: {
+      header: [
+        { text: 'Nombre', sortable: true },
+        { text: 'Apellido', sortable: false },
+        { text: 'Edad', sortable: true },
       ],
-      [
-        { text: 'Row 2 Col 1' },
-        { text: 'Row 2 Col 2', class: 'custom-class' },
-        { text: 'Row 2 Col 3' }
-      ]
-    ],
-    footer: [
-      [
-        { text: 'Footer 1' },
-        { text: 'Footer 2' },
-        { text: 'Footer 3' }
-      ]
-    ],
-    class: 'table-class'
+      body: [
+        [
+          { text: 'Juan', bold: true },
+          { text: 'Gómez' },
+          { text: '45', italic: true },
+        ],
+        [
+          { text: 'Pedro' },
+          { text: 'Dominguez', class: 'custom-class' },
+          { text: '36' },
+        ],
+        [{ text: 'Alberto' }, { text: 'Pérez' }, { text: '27' }],
+      ],
+      footer: [[{ text: 'Promedio' }, { text: '' }, { text: '36' }]],
+      class: 'table-class',
+    },
   };
 }
