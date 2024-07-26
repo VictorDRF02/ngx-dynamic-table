@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TableOptions } from './interfaces/table-options';
 import { NgxDynamicTableService } from './ngx-dynamic-table.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'ngx-dynamic-table',
   templateUrl: './ngx-dynamic-table.component.html',
+  standalone: true,
+  imports: [CommonModule],
   styles: [],
 })
 export class NgxDynamicTableComponent implements OnInit {

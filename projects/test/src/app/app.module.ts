@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NgxDynamicTableModule } from 'projects/ngx-dynamic-table/src/public-api';
+import { NgxDynamicTableComponent } from 'projects/ngx-dynamic-table/src/public-api';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, NgxDynamicTableModule],
+  imports: [BrowserModule, NgxDynamicTableComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
