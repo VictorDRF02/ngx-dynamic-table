@@ -7,7 +7,7 @@
 To install the library, run:
 
 ```bash
-yarn add ngx-dynamic-table
+yarn add ngx-dynamic-table-component
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ yarn add ngx-dynamic-table
 Import the module in your Angular application:
 
 ```typescript
-import { NgxDynamicTableModule } from 'ngx-dynamic-table';
+import { NgxDynamicTableModule } from 'ngx-dynamic-table-component';
 
 @NgModule({
   imports: [
@@ -31,7 +31,7 @@ export class AppModule { }
 
 ```typescript
 import { Component } from '@angular/core';
-import { TableOptions } from 'ngx-dynamic-table';
+import { TableOptions } from 'ngx-dynamic-table-component';
 
 @Component({
   selector: 'app-root',

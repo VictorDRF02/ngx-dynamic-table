@@ -1,24 +1,167 @@
-# NgxDynamicTable
+# ngx-dynamic-table-component
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+![npm version](https://img.shields.io/npm/v/ngx-dynamic-table-component)
 
-## Code scaffolding
+`ngx-dynamic-table-component` is an Angular component that generates a dynamic table using Bootstrap. The component accepts an input `data` which can be a `string[][]` or a `TableOptions`.
 
-Run `ng generate component component-name --project ngx-dynamic-table` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-dynamic-table`.
-> Note: Don't forget to add `--project ngx-dynamic-table` or else it will be added to the default project in your `angular.json` file. 
+## Features
 
-## Build
+- Dynamic table generation using Bootstrap
+- Supports both `string[][]` and `TableOptions` inputs
+- Customizable headers, footers, and cell styles
+- Sortable columns
 
-Run `ng build ngx-dynamic-table` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Publishing
+To install the library, run:
 
-After building your library with `ng build ngx-dynamic-table`, go to the dist folder `cd dist/ngx-dynamic-table` and run `npm publish`.
+```bash
+npm install ngx-dynamic-table-component
+```
 
-## Running unit tests
+## Usage
 
-Run `ng test ngx-dynamic-table` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Import the module in your Angular application:
 
-## Further help
+```typescript
+import { NgxDynamicTableModule } from 'ngx-dynamic-table-component';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  imports: [
+    // other modules
+    NgxDynamicTableModule
+  ],
+  // other components, services, etc.
+})
+export class AppModule { }
+```
+
+### Example Usage
+
+```typescript
+import { Component } from '@angular/core';
+import { TableOptions } from 'ngx-dynamic-table-component';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <ngx-dynamic-table [data]="tableData"></ngx-dynamic-table>
+  `
+})
+export class AppComponent {
+  tableData: string[][] = [
+    ['Header 1', 'Header 2', 'Header 3'],
+    ['Row 1 Col 1', 'Row 1 Col 2', 'Row 1 Col 3'],
+    ['Row 2 Col 1', 'Row 2 Col 2', 'Row 2 Col 3']
+  ];
+
+  // Or using TableOptions
+  tableOptions: TableOptions = {
+    header: [
+      { text: 'Header 1', sortable: true },
+      { text: 'Header 2', sortable: false },
+      { text: 'Header 3', sortable: true }
+    ],
+    body: [
+      [
+        { text: 'Row 1 Col 1', bold: true },
+        { text: 'Row 1 Col 2' },
+        { text: 'Row 1 Col 3', italic: true }
+      ],
+      [
+        { text: 'Row 2 Col 1' },
+        { text: 'Row 2 Col 2', class: 'custom-class' },
+        { text: 'Row 2 Col 3' }
+      ]
+    ],
+    footer: [
+      [
+        { text: 'Footer 1' },
+        { text: 'Footer 2' },
+        { text: 'Footer 3' }
+      ]
+    ],
+    class: 'table-class'
+  };
+}
+```
+
+## API
+
+### Inputs
+
+- `data: string[][] | TableOptions` - The data to be displayed in the table.
+
+### TableOptions
+
+- `header: CellHeaderOptions[]` - Table header content.
+- `body: CellOptions[][]` - Table body content.
+- `footer: CellOptions[][]` - Table footer contents.
+- `class: string` - Custom class for the table.
+
+## Examples
+
+### Basic Example
+
+```typescript
+@Component({
+  selector: 'app-basic',
+  template: `
+    <ngx-dynamic-table [data]="basicData"></ngx-dynamic-table>
+  `
+})
+export class BasicComponent {
+  basicData: string[][] = [
+    ['Header 1', 'Header 2', 'Header 3'],
+    ['Row 1 Col 1', 'Row 1 Col 2', 'Row 1 Col 3']
+  ];
+}
+```
+
+### Advanced Example with TableOptions
+
+```typescript
+@Component({
+  selector: 'app-advanced',
+  template: `
+    <ngx-dynamic-table [data]="advancedOptions"></ngx-dynamic-table>
+  `
+})
+export class AdvancedComponent {
+  advancedOptions: TableOptions = {
+    header: [
+      { text: 'Header 1', sortable: true },
+      { text: 'Header 2', sortable: false },
+      { text: 'Header 3', sortable: true }
+    ],
+    body: [
+      [
+        { text: 'Row 1 Col 1', bold: true },
+        { text: 'Row 1 Col 2' },
+        { text: 'Row 1 Col 3', italic: true }
+      ],
+      [
+        { text: 'Row 2 Col 1' },
+        { text: 'Row 2 Col 2', class: 'custom-class' },
+        { text: 'Row 2 Col 3' }
+      ]
+    ],
+    footer: [
+      [
+        { text: 'Footer 1' },
+        { text: 'Footer 2' },
+        { text: 'Footer 3' }
+      ]
+    ],
+    class: 'table-class'
+  };
+}
+```
+
+## Support
+
+If you encounter any issues or have questions, please open an issue on [GitHub](https://github.com/VictorDRF02/ngx-dynamic-table/issues).
+
+## More Information
+
+For more details, contributions, and license information, please visit the [GitHub repository](https://github.com/VictorDRF02/ngx-dynamic-table).
