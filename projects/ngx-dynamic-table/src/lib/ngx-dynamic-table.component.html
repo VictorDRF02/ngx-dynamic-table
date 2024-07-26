@@ -1,0 +1,35 @@
+<table *ngIf="!!tableData" [class]="'table table-hover table-bordered ' + tableData.class">
+    <thead *ngIf="!!tableData.header">
+        <tr>
+            <th *ngFor="let h of tableData.header" [class]="
+              h.class +
+              (h.bold ? ' fw-bold' : '') +
+              (h.italic ? ' fst-italic' : '')
+            ">
+                {{ h.text }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of tableData.body">
+            <td *ngFor="let c of row" [class]="
+              c.class +
+              (c.bold ? ' fw-bold' : '') +
+              (c.italic ? ' fst-italic' : '')
+            ">
+                {{ c.text }}
+            </td>
+        </tr>
+    </tbody>
+    <tfoot *ngIf="!!tableData.footer">
+        <tr *ngFor="let row of tableData.footer">
+            <td *ngFor="let c of row" [class]="
+              c.class +
+              (c.bold ? ' fw-bold' : '') +
+              (c.italic ? ' fst-italic' : '')
+            ">
+                {{ c.text }}>
+            </td>
+        </tr>
+    </tfoot>
+</table>
