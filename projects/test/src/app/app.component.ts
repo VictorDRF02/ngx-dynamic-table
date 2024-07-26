@@ -8,7 +8,7 @@ import { TableOptions } from 'projects/ngx-dynamic-table/src/lib/interfaces/tabl
 })
 export class AppComponent {
   title = 'test';
-  data1 = {
+  data1: TableOptions = {
     header: [
       { text: 'Header 1', sortable: true },
       { text: 'Header 2', sortable: false },
@@ -35,12 +35,4 @@ export class AppComponent {
     ],
     class: 'table-class'
   };
-  // data2: TableOptions = {
-  //   header: ['Nombre', 'Apellido', 'Edad'],
-  //   body: [
-  //     ['Pedro', 'Giménez', '20'],
-  //     ['Arturo', 'Gómez', '35'],
-  //   ],
-  //   footer: [['', '', '22.5']],
-  // };
 }
