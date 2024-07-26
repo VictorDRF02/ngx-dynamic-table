@@ -18,6 +18,8 @@ export class NgxDynamicTableComponent implements OnInit {
       this.tableData = this._dynamicTableService.transformToTableOptions(
         this.data
       );
+    } else {
+      this.tableData = this.data
     }
   }
 }
