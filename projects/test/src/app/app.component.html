@@ -26,4 +26,71 @@
   <div class="table-responsive">
     <ngx-dynamic-table [data]="examples.tableOptions"></ngx-dynamic-table>
   </div>
+  <h2 class="my-4">Features of <code>TableOptions</code></h2>
+  <p>
+    <code>TableOptions</code> has the properties <code>header</code>, <code>body</code>, <code>footer</code>, and
+    <code>class</code>. The first three are arrays or double arrays of <code>CellOptions</code>, which define properties
+    to modify the styles of the cells.
+  </p>
+  <h3 class="my-4">Property <code>header</code></h3>
+  <p>
+    The <code>header</code> property of <code>TableOptions</code> is an array of <code>CellHeaderOptions</code>.
+    These options allow you to customize the style of the table header cells. Below are the available properties:
+  </p>
+  <ul>
+    <li><code>text</code>: The text to be displayed in the cell.</li>
+    <li><code>bold</code>: If the text should be bold.</li>
+    <li><code>italic</code>: If the text should be italic.</li>
+    <li><code>class</code>: A custom CSS class to apply specific styles to the cell.</li>
+    <li><code>colSpam</code>: Number of columns the cell spans.</li>
+    <li><code>rowSpam</code>: Number of rows the cell spans.</li>
+    <li><code>sortable</code>: If the column is sortable.</li>
+  </ul>
+  <p>Example usage:</p>
+  <pre><code class="language-typescript">{{ examplesStrings.header }}</code></pre>
+  <p>This will generate a table like this:</p>
+  <ngx-dynamic-table [data]="examples.header"></ngx-dynamic-table>
+  <h3 class="my-4">Property <code>body</code></h3>
+  <p>
+    The <code>body</code> property of <code>TableOptions</code> is a double array of <code>CellOptions</code>.
+    This allows you to define the content and style of each cell in the table's body. Below are the available properties
+    for each cell:
+  </p>
+  <ul>
+    <li><code>text</code>: The text to be displayed in the cell.</li>
+    <li><code>bold</code>: If the text should be bold.</li>
+    <li><code>italic</code>: If the text should be italic.</li>
+    <li><code>class</code>: A custom CSS class to apply specific styles to the cell.</li>
+    <li><code>colSpam</code>: Number of columns the cell spans.</li>
+    <li><code>rowSpam</code>: Number of rows the cell spans.</li>
+  </ul>
+  <p>Example usage:</p>
+  <pre><code class="language-typescript">{{ examplesStrings.body }}</code></pre>
+  <p>This will generate a table like this:</p>
+  <ngx-dynamic-table [data]="examples.body"></ngx-dynamic-table>
+  <h3 class="my-4">Property <code>footer</code></h3>
+  <p>
+    The <code>footer</code> property of <code>TableOptions</code> is a double array of <code>CellOptions</code>, similar
+    to the <code>body</code> property. However, the <code>footer</code> is rendered in the <code>tfoot</code> element
+    and is not affected by column sorting. This allows you to display summary information or totals that remain static
+    regardless of how the table is sorted.
+  </p>
+  <ul>
+    <li><code>text</code>: The text to be displayed in the cell.</li>
+    <li><code>bold</code>: If the text should be bold.</li>
+    <li><code>italic</code>: If the text should be italic.</li>
+    <li><code>class</code>: A custom CSS class to apply specific styles to the cell.</li>
+    <li><code>colSpam</code>: Number of columns the cell spans.</li>
+    <li><code>rowSpam</code>: Number of rows the cell spans.</li>
+  </ul>
+  <p>Example usage:</p>
+  <pre><code class="language-typescript">{{ examplesStrings.footer }}</code></pre>
+  <p>This will generate a table like this:</p>
+  <ngx-dynamic-table [data]="examples.footer"></ngx-dynamic-table>
+  <h3 class="my-4">Property <code>class</code></h3>
+  <p>
+    The <code>class</code> property of <code>TableOptions</code> allows you to apply custom CSS classes to the table. This
+    enables you to style the table according to your specific design requirements. You can use any Bootstrap classes or
+    your own custom classes to achieve the desired look and feel.
+  </p>
 </div>

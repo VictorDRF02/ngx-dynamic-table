@@ -58,7 +58,7 @@ export class NgxDynamicTableComponent implements OnInit {
     });
     // Set currentColumn properties.
     if (this.currentColumn.index == column) {
-      this.currentColumn.isAscended = false;
+      this.currentColumn.isAscended = !this.currentColumn.isAscended;
     } else {
       this.currentColumn.isAscended = true;
       this.currentColumn.index = column;

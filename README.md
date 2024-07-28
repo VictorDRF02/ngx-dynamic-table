@@ -1,6 +1,24 @@
 # ngx-dynamic-table
 
+![npm version](https://img.shields.io/npm/v/ngx-dynamic-table-component)
+![npm downloads](https://img.shields.io/npm/dm/ngx-dynamic-table-component)
+![GitHub](https://img.shields.io/github/license/VictorDRF02/ngx-dynamic-table)
+
 `ngx-dynamic-table` is an Angular component that generates a dynamic table using Bootstrap. The component accepts an input `data` which can be a `string[][]` or a `TableOptions`.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Example Usage](#example-usage)
+- [Development](#development)
+  - [Clone the repository](#clone-the-repository)
+  - [Install dependencies](#install-dependencies)
+  - [Build](#build)
+  - [Run tests](#run-tests)
+  - [Run the example application](#run-the-example-application)
+- [Contributions](#contributions)
+- [License](#license)
 
 ## Installation
 
