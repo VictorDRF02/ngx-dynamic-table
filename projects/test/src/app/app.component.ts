@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
+import { HighlightService } from '../services/highlight.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   examples = {
     string: [
       ['Name', 'Surname', 'Age'],
@@ -37,4 +38,10 @@ export class AppComponent {
       class: 'table-class',
     },
   };
+
+  constructor(private _highlightService: HighlightService) {}
+
+  ngAfterViewInit(): void {
+    this._highlightService.highlightAll();
+  }
 }
