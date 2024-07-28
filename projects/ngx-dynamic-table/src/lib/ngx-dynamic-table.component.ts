@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TableOptions } from './interfaces/table-options';
 import { NgxDynamicTableService } from './ngx-dynamic-table.service';
 import { CommonModule } from '@angular/common';
+import { CellHeaderOptions } from './interfaces/cell-options';
 
 @Component({
   selector: 'ngx-dynamic-table',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class NgxDynamicTableComponent implements OnInit {
   @Input() data!: string[][] | TableOptions;
-  tableData?: TableOptions;
+  tableData!: TableOptions;
+  orderColumn?: number;
 
   constructor(private _dynamicTableService: NgxDynamicTableService) {}
 
@@ -22,7 +24,20 @@ export class NgxDynamicTableComponent implements OnInit {
         this.data
       );
     } else {
-      this.tableData = this.data
+      this.tableData = this.data;
     }
+  }
+
+  /**
+   * Sort an column.
+   * @param headerCell - Cell header of the column to sort.
+   */
+  sort(headerCell: CellHeaderOptions) {
+    const column = this.tableData.header?.indexOf(headerCell) || 0;
+    this.tableData.body = this.tableData.body.sort((a, b) => {
+      const number = a[column].text > b[column].text ? 1 : -1;
+      return column == this.orderColumn ? number * -1 : number;
+    });
+    this.orderColumn = column == this.orderColumn ? undefined : column;
   }
 }

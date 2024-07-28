@@ -8,17 +8,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   examples = {
     string: [
-      ['Nombre', 'Apellido', 'Edad'],
+      ['Name', 'Surname', 'Age'],
       ['Juan', 'Gómez', '45'],
       ['Pedro', 'Dominguez', '36'],
       ['Alberto', 'Pérez', '27'],
-      ['Promedio', '', '36'],
+      ['Average', '', '36'],
     ],
     tableOptions: {
       header: [
-        { text: 'Nombre', sortable: true },
-        { text: 'Apellido', sortable: false },
-        { text: 'Edad', sortable: true },
+        { text: 'Name', sortable: true, bold: true },
+        { text: 'Surname', sortable: false },
+        { text: 'Age', sortable: true },
       ],
       body: [
         [
@@ -33,7 +33,7 @@ export class AppComponent {
         ],
         [{ text: 'Alberto' }, { text: 'Pérez' }, { text: '27' }],
       ],
-      footer: [[{ text: 'Promedio' }, { text: '' }, { text: '36' }]],
+      footer: [[{ text: 'Average' }, { text: '' }, { text: '36' }]],
       class: 'table-class',
     },
   };

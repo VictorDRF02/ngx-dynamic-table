@@ -3,10 +3,15 @@
         <tr>
             <th *ngFor="let h of tableData.header" [class]="
               h.class +
-              (h.bold ? ' fw-bold' : '') +
+              (h.bold !== undefined && !h.bold ? ' fw-normal' : '') +
               (h.italic ? ' fst-italic' : '')
             ">
-                {{ h.text }}
+                <div *ngIf="h.sortable === undefined || h.sortable; else headerNotSorteable" (click)="sort(h)">
+                    {{ h.text }}
+                </div>
+                <ng-template #headerNotSorteable>
+                    {{ h.text }}
+                </ng-template>
             </th>
         </tr>
     </thead>
