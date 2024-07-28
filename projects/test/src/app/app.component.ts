@@ -34,11 +34,42 @@ export class AppComponent implements AfterViewInit {
         ],
         [{ text: 'Alberto' }, { text: 'Pérez' }, { text: '27' }],
       ],
-      footer: [[{ text: 'Average' }, { text: '' }, { text: '36' }]],
-      class: 'table-class',
+      footer: [[{ text: 'Average', bold: true, colSpam: 2 }, { text: '36' }]],
+      class: 'table-hover table-bordered',
     },
   };
 
+  examplesStrings = {
+    string: `[
+${this.examples.string
+  .map((row) => `  [${row.map((item) => `'${item}'`).join(', ')}]`)
+  .join(',\n')}
+]`,
+    tableOptions: `
+    {
+      header: [
+        { text: 'Name', sortable: true, bold: true },
+        { text: 'Surname', sortable: false },
+        { text: 'Age', sortable: true },
+      ],
+      body: [
+        [
+          { text: 'Juan', bold: true },
+          { text: 'Gómez' },
+          { text: '45', italic: true },
+        ],
+        [
+          { text: 'Pedro' },
+          { text: 'Dominguez', class: 'custom-class' },
+          { text: '36' },
+        ],
+        [{ text: 'Alberto' }, { text: 'Pérez' }, { text: '27' }],
+      ],
+      footer: [[{ text: 'Average', bold: true, colSpam: 2 }, { text: '36' }]],
+      class: 'table-hover table-bordered',
+    }
+    `,
+  };
   constructor(private _highlightService: HighlightService) {}
 
   ngAfterViewInit(): void {

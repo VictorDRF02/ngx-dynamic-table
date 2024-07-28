@@ -12,9 +12,16 @@ import { CellHeaderOptions } from './interfaces/cell-options';
   styles: [],
 })
 export class NgxDynamicTableComponent implements OnInit {
+  /** Table data */
   @Input() data!: string[][] | TableOptions;
+  /** Table data in TableOptions format */
   tableData!: TableOptions;
-  orderColumn?: number;
+  /** Currently organized column */
+  currentColumn: any = {
+    index: -1,
+    isAscended: false,
+    header: undefined,
+  };
 
   constructor(private _dynamicTableService: NgxDynamicTableService) {}
 
@@ -36,8 +43,17 @@ export class NgxDynamicTableComponent implements OnInit {
     const column = this.tableData.header?.indexOf(headerCell) || 0;
     this.tableData.body = this.tableData.body.sort((a, b) => {
       const number = a[column].text > b[column].text ? 1 : -1;
-      return column == this.orderColumn ? number * -1 : number;
+      return column == this.currentColumn.index &&
+        this.currentColumn.isAscended
+        ? number * -1
+        : number;
     });
-    this.orderColumn = column == this.orderColumn ? undefined : column;
+    if (this.currentColumn.index == column) {
+      this.currentColumn.isAscended = false;
+    } else {
+      this.currentColumn.isAscended = true;
+      this.currentColumn.index = column;
+      this.currentColumn.header = headerCell;
+    }
   }
 }

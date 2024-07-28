@@ -1,38 +1,55 @@
-<table *ngIf="!!tableData" [class]="'table table-hover table-bordered ' + tableData.class">
+<!-- Table if exist data -->
+<table *ngIf="!!tableData" [class]="'table ' + tableData.class">
+    <!-- Table Header -->
     <thead *ngIf="!!tableData.header">
         <tr>
+            <!-- Header Cells -->
             <th *ngFor="let h of tableData.header" [class]="
               h.class +
               (h.bold !== undefined && !h.bold ? ' fw-normal' : '') +
               (h.italic ? ' fst-italic' : '')
-            ">
-                <div *ngIf="h.sortable === undefined || h.sortable; else headerNotSorteable" (click)="sort(h)">
+            " [attr.colspan]="h.colSpam !== undefined && h.colSpam > 0 ? h.colSpam : 1"
+                [attr.rowspan]="h.rowSpam !== undefined && h.rowSpam > 0 ? h.rowSpam : 1">
+                <!-- Sorteable Header -->
+                <div *ngIf="h.sortable === undefined || h.sortable; else headerNotSorteable" (click)="sort(h)"
+                    role="button" (mouseover)="h.hasIcon = true" (mouseout)="h.hasIcon = false">
                     {{ h.text }}
+                    <i [ngClass]="{'bi bi-arrow-up': true, 'opacity-0': !h.hasIcon && !(h == currentColumn.header && currentColumn.isAscended)}"></i>
+                    <i [ngClass]="{'bi bi-arrow-down': true, 'opacity-0': !h.hasIcon && !(h == currentColumn.header && !currentColumn.isAscended)}"></i>
                 </div>
+                <!-- Non Sorteable Header -->
                 <ng-template #headerNotSorteable>
                     {{ h.text }}
                 </ng-template>
             </th>
         </tr>
     </thead>
+    <!-- Table Body -->
     <tbody>
+        <!-- Body Rows -->
         <tr *ngFor="let row of tableData.body">
+            <!-- Body Cells -->
             <td *ngFor="let c of row" [class]="
               c.class +
               (c.bold ? ' fw-bold' : '') +
               (c.italic ? ' fst-italic' : '')
-            ">
+            " [attr.colspan]="c.colSpam !== undefined && c.colSpam > 0 ? c.colSpam : 1"
+                [attr.rowspan]="c.rowSpam !== undefined && c.rowSpam > 0 ? c.rowSpam : 1">
                 {{ c.text }}
             </td>
         </tr>
     </tbody>
+    <!-- Footer -->
     <tfoot *ngIf="!!tableData.footer">
+        <!-- Footer Rows -->
         <tr *ngFor="let row of tableData.footer">
+            <!-- Footer Cells -->
             <td *ngFor="let c of row" [class]="
               c.class +
               (c.bold ? ' fw-bold' : '') +
               (c.italic ? ' fst-italic' : '')
-            ">
+            " [attr.colspan]="c.colSpam !== undefined && c.colSpam > 0 ? c.colSpam : 1"
+                [attr.rowspan]="c.rowSpam !== undefined && c.rowSpam > 0 ? c.rowSpam : 1">
                 {{ c.text }}
             </td>
         </tr>

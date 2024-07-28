@@ -46,7 +46,7 @@ export class NgxDynamicTableService {
     const tableOptions: TableOptions = {
       header: header,
       body: body,
-      class: options.tableClass,
+      class: options.tableClass || 'table-hover table-bordered',
     };
     // Return
     return tableOptions;
