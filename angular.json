@@ -58,8 +58,7 @@
               "projects/test/src/assets"
             ],
             "styles": [
-              "projects/test/src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "projects/test/src/styles.css"
             ],
             "scripts": []
           },
@@ -121,8 +120,7 @@
               "projects/test/src/assets"
             ],
             "styles": [
-              "projects/test/src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "projects/test/src/styles.css"
             ],
             "scripts": []
           }

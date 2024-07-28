@@ -9,7 +9,14 @@ import { CellHeaderOptions } from './interfaces/cell-options';
   templateUrl: './ngx-dynamic-table.component.html',
   standalone: true,
   imports: [CommonModule],
-  styles: [],
+  styles: [
+    `
+      @import '~bootstrap/dist/css/bootstrap.min.css';
+    `,
+    `
+      @import '~bootstrap-icons/font/bootstrap-icons.css';
+    `,
+  ],
 })
 export class NgxDynamicTableComponent implements OnInit {
   /** Table data */
@@ -40,14 +47,16 @@ export class NgxDynamicTableComponent implements OnInit {
    * @param headerCell - Cell header of the column to sort.
    */
   sort(headerCell: CellHeaderOptions) {
+    // Get column index.
     const column = this.tableData.header?.indexOf(headerCell) || 0;
+    // Sort column.
     this.tableData.body = this.tableData.body.sort((a, b) => {
       const number = a[column].text > b[column].text ? 1 : -1;
-      return column == this.currentColumn.index &&
-        this.currentColumn.isAscended
+      return column == this.currentColumn.index && this.currentColumn.isAscended
         ? number * -1
         : number;
     });
+    // Set currentColumn properties.
     if (this.currentColumn.index == column) {
       this.currentColumn.isAscended = false;
     } else {

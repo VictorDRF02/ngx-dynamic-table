@@ -14,8 +14,10 @@
                 <div *ngIf="h.sortable === undefined || h.sortable; else headerNotSorteable" (click)="sort(h)"
                     role="button" (mouseover)="h.hasIcon = true" (mouseout)="h.hasIcon = false">
                     {{ h.text }}
-                    <i [ngClass]="{'bi bi-arrow-up': true, 'opacity-0': !h.hasIcon && !(h == currentColumn.header && currentColumn.isAscended)}"></i>
-                    <i [ngClass]="{'bi bi-arrow-down': true, 'opacity-0': !h.hasIcon && !(h == currentColumn.header && !currentColumn.isAscended)}"></i>
+                    <i [ngClass]="{'bi bi-arrow-up': true, 
+                        'opacity-0': !h.hasIcon && !(h == currentColumn.header && currentColumn.isAscended)}"></i>
+                    <i [ngClass]="{'bi bi-arrow-down': true, 
+                        'opacity-0': !h.hasIcon && !(h == currentColumn.header && !currentColumn.isAscended)}"></i>
                 </div>
                 <!-- Non Sorteable Header -->
                 <ng-template #headerNotSorteable>
