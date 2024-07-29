@@ -54,6 +54,13 @@ import { NgxDynamicTableComponent } from 'ngx-dynamic-table-component';
 export class AppModule { }
 ```
 
+Add the `bootstrap` and `bootstrap-icons` styles to your global styles file `styles.css` or `styles.scss`:
+
+```css
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+```
+
 ### Example Usage
 
 ```typescript
