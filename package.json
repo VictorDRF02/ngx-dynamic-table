@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "node ./node_modules/@angular/cli/bin/ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build ngx-dynamic-table",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "semantic-release": "semantic-release --branches main"
