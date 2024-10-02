@@ -32,6 +32,7 @@ jobs:
         with:
           node-version: 20
       - run: yarn install --frozen-lockfile
+      - run: yarn run build
       - run: yarn run semantic-release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
