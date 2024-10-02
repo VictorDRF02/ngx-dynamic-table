@@ -1,5 +1,5 @@
 {
-  "name": "angular-workspace",
+  "name": "ngx-dynamic-table-component",
   "version": "0.0.0-development",
   "scripts": {
     "ng": "node ./node_modules/@angular/cli/bin/ng",
