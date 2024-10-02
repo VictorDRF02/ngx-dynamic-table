@@ -1,18 +1,11 @@
 {
-  "branches": [
-    "main"
-  ],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     [
-      "@semantic-release/git",
+      "@semantic-release/npm",
       {
-        "assets": [
-          "dist/*.js",
-          "dist/*.js.map"
-        ],
-        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        "pkgRoot": "dist/ngx-dynamic-table-component"
       }
     ],
     "@semantic-release/github"
